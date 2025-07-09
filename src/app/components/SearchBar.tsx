@@ -20,7 +20,7 @@ const SearchBar = ({
       <div>
         <input
           type="text"
-          placeholder="Introduce una palabra clave ..."
+          placeholder="Introduce el id de un producto ..."
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
