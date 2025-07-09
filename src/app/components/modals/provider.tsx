@@ -14,10 +14,10 @@ interface IModalContext {
 export const ModalContext = createContext<IModalContext>({
   isOpen: false,
   modalToShow: null,
-  setIsOpen: (value: boolean) => {},
-  setModalToShow: (value: React.ReactNode | null) => {},
+  setIsOpen: () => {},
+  setModalToShow: () => {},
   productId: null,
-  setProductId: (value: number | null) => {},
+  setProductId: () => {},
 });
 
 const ModalProvider = ({ children }: { children: React.ReactNode }) => {
