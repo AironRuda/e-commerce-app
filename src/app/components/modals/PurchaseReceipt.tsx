@@ -37,7 +37,7 @@ const PurchaseReceipt = () => {
         </div>
         <div className="flex justify-between gap-4 text-lg font-bold">
           <p>Total</p>
-          <p>$ {cartTotal.toFixed(2)}</p>
+          <p>$ {(cartTotal + cartTotal * 0.16).toFixed(2)}</p>
         </div>
       </div>
       <button
