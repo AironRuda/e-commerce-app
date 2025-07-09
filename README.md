@@ -91,16 +91,22 @@ git clone [https://github.com/tu-usuario/e-commerce-app.git](https://github.com/
 cd e-commerce-app
 ```
 
-2. Instala las dependencias:
+2. Crea un archivo `.env` en la raíz del proyecto con la siguiente configuración:
+
+```bash
+NEXT_PUBLIC_API_URL="https://fakestoreapi.com/"
+```
+
+3. Instala las dependencias:
 
 ```bash
 npm install
 ```
 
-3. Inicia el servidor de desarrollo:
+4. Inicia el servidor de desarrollo:
 
 ```bash
 npm run dev
 ```
 
-4. Abre tu navegador y ve a `http://localhost:3000` para ver la aplicación.
+5. Abre tu navegador y ve a `http://localhost:3000` para ver la aplicación.
