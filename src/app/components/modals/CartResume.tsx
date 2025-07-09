@@ -29,6 +29,14 @@ const CartResume = () => {
     setShowResume(false);
   };
 
+  const handleShowPurchaseReceipt = () => {
+    if (!cartProducts.length) {
+      setIsOpen(false);
+    } else {
+      setModalToShow(<PurchaseReceipt />);
+    }
+  };
+
   return (
     <div className="bg-background shadow-lg rounded-2xl p-6 max-w-4xl w-full h-[100vh] md:max-h-[80vh] flex flex-col items-center">
       <div className="flex justify-between w-full">
@@ -90,7 +98,7 @@ const CartResume = () => {
           <div className="bg-white rounded-2xl p-6 shadow-lg">
             <CartSummary
               onClose={() => setIsOpen(false)}
-              onPurchase={() => setModalToShow(<PurchaseReceipt />)}
+              onPurchase={handleShowPurchaseReceipt}
             />
           </div>
         </div>
@@ -102,7 +110,7 @@ const CartResume = () => {
         >
           <CartSummary
             onClose={handleHideResumeModal}
-            onPurchase={() => setModalToShow(<PurchaseReceipt />)}
+            onPurchase={handleShowPurchaseReceipt}
           />
         </div>
       </section>

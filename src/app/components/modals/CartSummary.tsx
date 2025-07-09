@@ -15,7 +15,10 @@ export const CartSummary = ({
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <h3 className="text-lg font-bold">Resumen de la compra</h3>
-        <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+        <button
+          onClick={onClose}
+          className="text-gray-500 hover:text-gray-700 md:hidden"
+        >
           <Image src="/close-icon.svg" alt="close" width={20} height={20} />
         </button>
       </div>
