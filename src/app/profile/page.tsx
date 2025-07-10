@@ -36,8 +36,8 @@ const page = () => {
             className="md:hidden"
             src="/user-icon.svg"
             alt="User"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
           />
           <Image
             className="hidden md:block"
@@ -51,11 +51,11 @@ const page = () => {
       </div>
       <div className="flex flex-col items-center gap-4 md:bg-white">
         <Image
-          className="rounded-full my-8 md:my-2"
+          className="rounded-full my-8 md:my-8"
           src="/profile-image.png"
           alt="User"
-          width={150}
-          height={150}
+          width={100}
+          height={100}
         />
         <ul className="flex flex-col gap-4">
           {profileOptions.map((option) => (

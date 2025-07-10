@@ -22,7 +22,7 @@ const ProfileOptionCard = ({ name, href, icon }: ProfileOptionCardProps) => {
         className="p-4 px-8 rounded-lg flex items-center gap-4 w-full"
       >
         <Image className="mx-8" src={icon} alt="User" width={30} height={30} />
-        <p className="flex-grow font-extrabold text-2xl text-center">{name}</p>
+        <p className="flex-grow font-extrabold text-xl text-center">{name}</p>
       </Link>
     </li>
   );

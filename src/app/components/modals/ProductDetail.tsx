@@ -57,11 +57,11 @@ const ProductDetail = ({ productId }: { productId: number }) => {
           <Image src="/close-icon.svg" alt="close" width={20} height={20} />
         </button>
 
-        <article className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+        <article className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-3">
           <div className="relative w-full h-full flex flex-col justify-center items-center">
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center w-full">
               <Image
-                className="rounded-2xl"
+                className="rounded-2xl shadow-balanced border-1"
                 src={productResponse.image}
                 alt="product-image"
                 width={400}
@@ -70,7 +70,7 @@ const ProductDetail = ({ productId }: { productId: number }) => {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="rounded-full border-1 border-gray-500 shadow-2xl absolute md:hidden top-4 left-4"
+              className="rounded-full border-1 border-gray-200 shadow-2xl absolute md:hidden top-4 left-4"
             >
               <Image
                 className="bg-white p-1 rounded-full"
@@ -84,7 +84,7 @@ const ProductDetail = ({ productId }: { productId: number }) => {
 
             <button
               onClick={handleFavProduct}
-              className="rounded-full border-1 border-gray-500 shadow-2xl absolute top-4 right-4 cursor-pointer"
+              className="rounded-full border-1 border-gray-200 shadow-2xl absolute top-4 right-4 cursor-pointer"
             >
               <Image
                 className="bg-white p-1 rounded-full "
@@ -95,7 +95,7 @@ const ProductDetail = ({ productId }: { productId: number }) => {
               />
             </button>
 
-            <div className="absolute flex items-center justify-around gap-16 top-1/2 left-1/12 p-2">
+            <div className="absolute flex items-center justify-around gap-16 bottom-4 left-4 p-2">
               <div className="text-left flex flex-col gap-6">
                 <p className="text-3xl font-extrabold text-white text-shadow-[0_0_10px_rgba(0,0,0)]">
                   {stringCutter(productResponse.name, 12)}
