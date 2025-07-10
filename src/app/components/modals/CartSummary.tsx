@@ -28,8 +28,7 @@ export const CartSummary = ({
         <div className="flex items-center gap-2">
           <span className="bg-background-icon rounded-lg p-2">🎲</span>
           <p>
-            Productos ({totalProductsInCart.toFixed(2)}): ${" "}
-            {cartTotal.toFixed(2)}
+            Productos ({totalProductsInCart}): $ {cartTotal.toFixed(2)}
           </p>
         </div>
 

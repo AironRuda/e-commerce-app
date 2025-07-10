@@ -95,12 +95,12 @@ const ProductDetail = ({ productId }: { productId: number }) => {
               />
             </button>
 
-            <div className="absolute  flex items-center justify-around gap-16 top-3/4 left-0 p-2">
+            <div className="absolute flex items-center justify-around gap-16 top-1/2 left-1/12 p-2">
               <div className="text-left flex flex-col gap-6">
-                <p className="text-2xl font-bold text-white text-shadow-[0_0_4px_rgba(0,0,0,0.8)]">
+                <p className="text-3xl font-extrabold text-white text-shadow-[0_0_10px_rgba(0,0,0)]">
                   {stringCutter(productResponse.name, 12)}
                 </p>
-                <p className="text-xl font-bold text-white text-shadow-[0_0_4px_rgba(0,0,0,0.8)]">
+                <p className="text-2xl font-extrabold text-white text-shadow-[0_0_10px_rgba(0,0,0)]">
                   $ {productResponse.price}
                 </p>
               </div>
