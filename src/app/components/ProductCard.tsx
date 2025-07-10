@@ -22,7 +22,7 @@ const ProductCard = ({ productData }: { productData: IProduct }) => {
     setModalToShow(<ProductDetail productId={productData.id} />);
   };
 
-  const [showAlert, setShowAlert] = useState(true);
+  const [showAlert, setShowAlert] = useState(false);
   const handleFavProduct = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (isProductFav) {

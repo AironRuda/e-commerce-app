@@ -2,7 +2,9 @@
 
 import { IProduct } from "@/domain/product/Product";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import { ModalContext } from "./modals/provider";
+import ProductDetail from "./modals/ProductDetail";
 
 interface AddToFavAlertProps {
   productData: IProduct;
@@ -10,6 +12,8 @@ interface AddToFavAlertProps {
 }
 
 const AddToFavAlert = ({ productData, setShowAlert }: AddToFavAlertProps) => {
+  const { setIsOpen, setModalToShow, setProductId } = useContext(ModalContext);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAlert(false);
@@ -17,6 +21,13 @@ const AddToFavAlert = ({ productData, setShowAlert }: AddToFavAlertProps) => {
 
     return () => clearTimeout(timer);
   }, [setShowAlert]);
+
+  const handleShowModal = () => {
+    setIsOpen(true);
+    setProductId(productData.id);
+    setModalToShow(<ProductDetail productId={productData.id} />);
+  };
+
   return (
     <div className="mx-3 h-20 rounded-t-2xl md:hidden flex items-center justify-around fixed bottom-1/9 left-0 right-0 z-9 bg-background-icon">
       <Image
@@ -33,7 +44,7 @@ const AddToFavAlert = ({ productData, setShowAlert }: AddToFavAlertProps) => {
         alt="white-arrow-icon"
         width={40}
         height={40}
-        onClick={() => setShowAlert(false)}
+        onClick={handleShowModal}
       />
     </div>
   );
