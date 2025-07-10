@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
 import { ModalContext } from "./modals/provider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ProductDetail from "./modals/ProductDetail";
 import { IProduct } from "@/domain/product/Product";
 import { stringCutter } from "../utils/stringCutter";
 import { useFavProductsContext } from "../context/FavProductsProvider";
+import AddToFavAlert from "./AddToFavAlert";
 
 const ProductCard = ({ productData }: { productData: IProduct }) => {
   const { setIsOpen, setModalToShow, setProductId } = useContext(ModalContext);
@@ -21,12 +22,14 @@ const ProductCard = ({ productData }: { productData: IProduct }) => {
     setModalToShow(<ProductDetail productId={productData.id} />);
   };
 
+  const [showAlert, setShowAlert] = useState(true);
   const handleFavProduct = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
     if (isProductFav) {
       removeFavProduct(String(productData.id));
+      setShowAlert(false);
     } else {
+      setShowAlert(true);
       addFavProduct(productData);
     }
   };
@@ -36,6 +39,9 @@ const ProductCard = ({ productData }: { productData: IProduct }) => {
       className="flex flex-col items-center  bg-white rounded-2xl p-2 h-60 w-48 shadow-xl"
       key={productData.id}
     >
+      {showAlert && (
+        <AddToFavAlert productData={productData} setShowAlert={setShowAlert} />
+      )}
       <div
         className="h-full flex flex-col items-center justify-center"
         onClick={handleShowModal}
