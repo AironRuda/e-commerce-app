@@ -36,7 +36,7 @@ const ProductCard = ({ productData }: { productData: IProduct }) => {
 
   return (
     <li
-      className="flex flex-col items-center  bg-white rounded-2xl p-2 h-60 w-48 shadow-xl"
+      className="flex flex-col items-center bg-white rounded-2xl p-2 h-60 w-40 md:w-48 shadow-xl"
       key={productData.id}
     >
       {showAlert && (

@@ -20,7 +20,7 @@ const SearchBar = ({
       <div className="flex justify-between">
         <input
           type="text"
-          placeholder="Introduce el id de un producto ..."
+          placeholder="Introduce una palabra clave ..."
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
