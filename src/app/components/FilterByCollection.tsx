@@ -37,7 +37,7 @@ const FilterByCollection = ({
       <style>{styles}</style>
       <section className="flex flex-col gap-4 mt-4">
         <h1 className="text-2xl font-bold">Categorías</h1>
-        <div className="overflow-x-auto scrollbar-hide h-20 -mx-4 px-4">
+        <div className="overflow-x-auto scrollbar-hide h-20 pt-1 -mx-4 px-4">
           <div className="flex gap-4">
             {collectionFilterOptions.map((option) => (
               <button

@@ -8,8 +8,9 @@ export const CartSummary = ({
   onClose: () => void;
   onPurchase: () => void;
 }) => {
-  const { cartProducts, getCartTotal } = useCartProductsContext();
+  const { getCartTotal, getTotalProductsInCart } = useCartProductsContext();
   const cartTotal = getCartTotal();
+  const totalProductsInCart = getTotalProductsInCart();
 
   return (
     <div className="space-y-4">
@@ -27,7 +28,8 @@ export const CartSummary = ({
         <div className="flex items-center gap-2">
           <span className="bg-background-icon rounded-lg p-2">🎲</span>
           <p>
-            Productos ({cartProducts.length}): $ {cartTotal.toFixed(2)}
+            Productos ({totalProductsInCart.toFixed(2)}): ${" "}
+            {cartTotal.toFixed(2)}
           </p>
         </div>
 

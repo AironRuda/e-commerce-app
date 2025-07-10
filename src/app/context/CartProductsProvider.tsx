@@ -11,6 +11,7 @@ interface CartProductsContextType {
   getCartTotal: () => number;
   increaseProductQuantity: (productId: string) => void;
   decreaseProductQuantity: (productId: string) => void;
+  getTotalProductsInCart: () => number;
 }
 
 const CartProductsContext = createContext<CartProductsContextType>({
@@ -21,6 +22,7 @@ const CartProductsContext = createContext<CartProductsContextType>({
   getCartTotal: () => 0,
   increaseProductQuantity: () => {},
   decreaseProductQuantity: () => {},
+  getTotalProductsInCart: () => 0,
 });
 
 const STORAGE_KEY = "CartProducts";
@@ -104,6 +106,11 @@ export const CartProductsProvider = ({
         .filter((product): product is IProduct => product !== null)
     );
   };
+  const getTotalProductsInCart = () => {
+    return cartProducts.reduce((total, product) => {
+      return total + (product.quantity || 1);
+    }, 0);
+  };
 
   const value = {
     cartProducts,
@@ -113,6 +120,7 @@ export const CartProductsProvider = ({
     getCartTotal,
     increaseProductQuantity,
     decreaseProductQuantity,
+    getTotalProductsInCart,
   };
 
   return (
