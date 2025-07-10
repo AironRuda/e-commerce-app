@@ -66,16 +66,27 @@ body {
   }
 
   .search-bar {
-    @apply w-1/2 bg-white px-4 py-3 rounded-3xl mt-10 mx-auto;
+    @apply w-1/2 bg-white py-3 rounded-3xl mt-5 mx-auto;
     & div {
       @apply relative flex items-center;
     }
     & input {
-      @apply w-full bg-transparent py-2 sm:pr-10 pl-10 text-lg text-black placeholder-gray-500 outline-hidden;
+      @apply w-3/4 bg-transparent py-2 sm:pr-10 pl-8 font-medium text-lg text-black placeholder-gray-500 outline-hidden;
     }
   }
 
   .filter-by-collection-option {
-    @apply border-2 border-gray-200 py-4 px-8 rounded-2xl hover:scale-105 transition-discrete duration-300;
+    @apply border border-gray-500 px-8 rounded-2xl hover:scale-105 transition-discrete duration-300;
+  }
+
+  .shadow-balanced {
+    @apply shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)_0_-4px_6px_-1px_rgba(0,0,0,0.1)];
+  }
+
+  .modal-backdrop {
+    @apply fixed inset-0 bg-black/20 backdrop-blur-sm z-30;
+  }
+  .modal-backdrop::selection {
+    @apply bg-transparent;
   }
 }

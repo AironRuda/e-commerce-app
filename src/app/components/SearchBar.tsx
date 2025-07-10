@@ -17,7 +17,7 @@ const SearchBar = ({
         isFocused ? "outline-2 outline-gray-500" : ""
       }`}
     >
-      <div>
+      <div className="flex justify-between">
         <input
           type="text"
           placeholder="Introduce el id de un producto ..."
@@ -29,10 +29,11 @@ const SearchBar = ({
           onBlur={() => setIsFocused(false)}
         />
         <Image
+          className="mr-5"
           src="/search-icon.svg"
           alt="search-icon"
-          width={40}
-          height={40}
+          width={30}
+          height={30}
         />
       </div>
     </div>

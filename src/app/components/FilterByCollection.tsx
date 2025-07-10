@@ -8,10 +8,10 @@ const FilterByCollection = ({
   setCollectionFilter: (collectionFilter: string) => void;
 }) => {
   const collectionFilterOptions = [
-    { name: "🎮  Tecnología", collectionId: "electronics" },
-    { name: "💎  Joyería", collectionId: "jewelery" },
-    { name: "👗  Ropa Femenina", collectionId: "men's clothing" },
-    { name: "👚  Ropa Masculina", collectionId: "women's clothing" },
+    { icon: "🎮", name: "Tecnología", collectionId: "electronics" },
+    { icon: "💎", name: "Joyería", collectionId: "jewelery" },
+    { icon: "👗", name: "Ropa Femenina", collectionId: "men's clothing" },
+    { icon: "👚", name: "Ropa Masculina", collectionId: "women's clothing" },
   ];
 
   const handleCollectionFilter = (collectionId: string) => {
@@ -22,27 +22,45 @@ const FilterByCollection = ({
     }
   };
 
+  const styles = `
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+`;
+
   return (
-    <section className="flex flex-col gap-4 mt-4 ">
-      <h1 className="text-2xl font-bold">Categorías</h1>
-      <ul className="grid grid-cols-2 gap-2 md:grid-cols-4">
-        {collectionFilterOptions.map((option) => (
-          <li
-            key={option.collectionId}
-            className="flex items-center w-full justify-center md:col-span-1"
-          >
-            <button
-              className={`filter-by-collection-option ${
-                collectionFilter === option.collectionId ? "bg-white" : ""
-              }`}
-              onClick={() => handleCollectionFilter(option.collectionId)}
-            >
-              {option.name}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <>
+      <style>{styles}</style>
+      <section className="flex flex-col gap-4 mt-4">
+        <h1 className="text-2xl font-bold">Categorías</h1>
+        <div className="overflow-x-auto scrollbar-hide h-20 -mx-4 px-4">
+          <div className="flex gap-4">
+            {collectionFilterOptions.map((option) => (
+              <button
+                key={option.collectionId}
+                className={`filter-by-collection-option px-4 py-2 rounded-lg transition-colors duration-200 ${
+                  collectionFilter === option.collectionId
+                    ? "bg-white text-black border-0 shadow-lg"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+                onClick={() => handleCollectionFilter(option.collectionId)}
+              >
+                <p className="flex gap-2 items-center">
+                  <span className="bg-background rounded-lg p-2">
+                    {option.icon}
+                  </span>
+                  {option.name}
+                </p>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -27,21 +27,21 @@ export default function Home() {
 
   return (
     <article className="w-full p-8">
-      <header className="w-full">
-        <p className="text-4xl font-extrabold text-start md:text-center">
+      <header className="w-full pt-18 md:pt-0">
+        <p className="text-3xl font-extrabold text-start md:text-center">
           ¿Qué es lo que estás buscando?
         </p>
-        <SearchBar search={search} setSearch={setSearch} />
-        <FilterByCollection
-          collectionFilter={collectionFilter}
-          setCollectionFilter={setCollectionFilter}
-        />
-        {search && <ProductsById productId={debouncedSearch} />}
-        {collectionFilter && (
-          <ProductsByCollection collection={collectionFilter} />
-        )}
-        {!search && !collectionFilter && <ProductsTable />}
       </header>
+      <SearchBar search={search} setSearch={setSearch} />
+      <FilterByCollection
+        collectionFilter={collectionFilter}
+        setCollectionFilter={setCollectionFilter}
+      />
+      {search && <ProductsById productId={debouncedSearch} />}
+      {collectionFilter && (
+        <ProductsByCollection collection={collectionFilter} />
+      )}
+      {!search && !collectionFilter && <ProductsTable />}
     </article>
   );
 }

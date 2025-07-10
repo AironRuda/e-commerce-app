@@ -104,7 +104,7 @@ const CartResume = () => {
         </div>
 
         <div
-          className={`fixed bottom-0 left-0 right-0 bg-white p-4 rounded-t-2xl shadow-lg transition-all duration-300 ${
+          className={`fixed bottom-0 left-0 right-0 bg-white p-4 rounded-t-2xl shadow-lg transition-all duration-300 z-50 ${
             showResume ? "translate-y-0" : "translate-y-full"
           }`}
         >
@@ -113,6 +113,12 @@ const CartResume = () => {
             onPurchase={handleShowPurchaseReceipt}
           />
         </div>
+        {showResume && (
+          <div
+            className="modal-backdrop md:hidden"
+            onClick={handleHideResumeModal}
+          />
+        )}
       </section>
     </div>
   );

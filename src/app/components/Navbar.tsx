@@ -15,7 +15,7 @@ const Navbar = () => {
         width={30}
         height={30}
       />
-      <nav className="bg-primary rounded-2xl p-4 md:bg-transparent">
+      <nav className="bg-primary rounded-2xl p-6 md:bg-transparent">
         <ul className="flex items-center justify-around ">
           <li className="nav-item">
             <Link href="/">
@@ -25,8 +25,8 @@ const Navbar = () => {
                   pathname === "/" ? "/white-house-icon.svg" : "/house-icon.svg"
                 }
                 alt="Home"
-                width={30}
-                height={30}
+                width={25}
+                height={25}
               />
               <p
                 className={pathname === "/" ? "border-b-4 border-primary" : ""}
@@ -45,8 +45,8 @@ const Navbar = () => {
                 className=" md:hidden"
                 src="/collection-icon.svg"
                 alt="Home"
-                width={30}
-                height={30}
+                width={25}
+                height={25}
               />
               <p
                 className={
@@ -67,8 +67,8 @@ const Navbar = () => {
                 className="md:hidden"
                 src="/bag-icon.svg"
                 alt="Home"
-                width={30}
-                height={30}
+                width={25}
+                height={25}
               />
               <p
                 className={
@@ -83,10 +83,14 @@ const Navbar = () => {
             <Link href="/profile">
               <Image
                 className="md:hidden"
-                src="/user-icon.svg"
+                src={
+                  pathname === "/profile"
+                    ? "/white-user-icon.svg"
+                    : "/user-icon.svg"
+                }
                 alt="Home"
-                width={30}
-                height={30}
+                width={25}
+                height={25}
               />
               <p
                 className={

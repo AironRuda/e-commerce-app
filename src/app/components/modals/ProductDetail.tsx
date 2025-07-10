@@ -49,7 +49,7 @@ const ProductDetail = ({ productId }: { productId: number }) => {
     if (isError) return <StatusError />;
     if (!productResponse?.id) return <StatusNotfound />;
     return (
-      <div className="bg-white shadow-lg rounded-2xl p-6 max-w-4xl w-full relative max-h-[80dvh] overflow-auto">
+      <div className="bg-white shadow-lg rounded-2xl p-6 max-w-4xl w-full relative max-h-full md:max-h-[80dvh] overflow-auto">
         <button
           onClick={() => setIsOpen(false)}
           className="absolute hidden md:block top-4 right-4 text-gray-500 hover:text-gray-700"
@@ -70,10 +70,10 @@ const ProductDetail = ({ productId }: { productId: number }) => {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute md:hidden top-4 left-4 text-gray-500 hover:text-gray-700"
+              className="rounded-full border-1 border-gray-500 shadow-2xl absolute md:hidden top-4 left-4"
             >
               <Image
-                className="z-40 bg-white p-1 rounded-full shadow"
+                className="bg-white p-1 rounded-full"
                 src="/chevron-down-icon.svg"
                 style={{ transform: "rotate(90deg)" }}
                 alt="close"
@@ -82,9 +82,12 @@ const ProductDetail = ({ productId }: { productId: number }) => {
               />
             </button>
 
-            <button onClick={handleFavProduct}>
+            <button
+              onClick={handleFavProduct}
+              className="rounded-full border-1 border-gray-500 shadow-2xl absolute top-4 right-4 cursor-pointer"
+            >
               <Image
-                className="absolute top-6 right-6 cursor-pointer bg-white p-1 rounded-full shadow-2xl border-2"
+                className="bg-white p-1 rounded-full "
                 src={isProductFav ? "/is-fav-icon.svg" : "/is-not-fav-icon.svg"}
                 alt={productResponse.name}
                 width={40}
@@ -92,12 +95,12 @@ const ProductDetail = ({ productId }: { productId: number }) => {
               />
             </button>
 
-            <div className="absolute  flex items-center justify-around gap-16 top-3/4 left-0 p-2 rounded-xl text-center bg-border">
-              <div className="text-left">
-                <p className="text-2xl font-bold text-left ">
-                  {stringCutter(productResponse.name)}
+            <div className="absolute  flex items-center justify-around gap-16 top-3/4 left-0 p-2">
+              <div className="text-left flex flex-col gap-6">
+                <p className="text-2xl font-bold text-white text-shadow-[0_0_4px_rgba(0,0,0,0.8)]">
+                  {stringCutter(productResponse.name, 12)}
                 </p>
-                <p className="text-xl font-bold text-gray-500">
+                <p className="text-xl font-bold text-white text-shadow-[0_0_4px_rgba(0,0,0,0.8)]">
                   $ {productResponse.price}
                 </p>
               </div>
