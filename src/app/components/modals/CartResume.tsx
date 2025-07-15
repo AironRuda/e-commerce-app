@@ -38,7 +38,7 @@ const CartResume = () => {
   };
 
   return (
-    <div className="bg-background shadow-lg rounded-2xl p-6 max-w-4xl w-full h-[100vh] md:max-h-[80vh] flex flex-col items-center">
+    <div className="bg-background shadow-lg rounded-2xl pt-10 p-6 max-w-4xl w-full h-[100vh] md:max-h-[80vh] flex flex-col items-center">
       <div className="flex justify-between w-full">
         <button
           onClick={() => handleBackToProductDetail()}

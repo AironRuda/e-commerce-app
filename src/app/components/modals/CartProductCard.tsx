@@ -27,7 +27,9 @@ const CartProductCard = ({
           />
         </div>
         <div className="flex-grow pl-4 flex flex-col">
-          <p className="text-base font-bold">{stringCutter(product.name)}</p>
+          <p className="text-base font-bold">
+            {stringCutter(product.name, 12)}
+          </p>
           <p className="text-gray-500 text-xs">{product.rating.rate}</p>
           <p className="text-gray-500 text-xs">$ {product.price}</p>
         </div>
