@@ -16,16 +16,20 @@ const CartProductCard = ({
 }: CartProductCardProps) => {
   return (
     <div className="col-span-1 flex flex-col gap-4 bg-white rounded-2xl p-4 w-full">
-      <div className="flex items-center justify-around gap-2">
-        <Image
-          src={product.image}
-          alt="product-image"
-          width={100}
-          height={100}
-        />
-        <div>
-          <p className="text-sm font-bold">{stringCutter(product.name)}</p>
-          <p className="text-gray-500 text-sm">$ {product.price}</p>
+      <div className="flex justify-between items-end">
+        <div className="h-16 w-16 flex rounded-lg border border-gray-200 items-center justify-center">
+          <Image
+            className="h-full w-full rounded-lg"
+            src={product.image}
+            alt="product-image"
+            width={100}
+            height={100}
+          />
+        </div>
+        <div className="flex-grow pl-4 flex flex-col">
+          <p className="text-base font-bold">{stringCutter(product.name)}</p>
+          <p className="text-gray-500 text-xs">{product.rating.rate}</p>
+          <p className="text-gray-500 text-xs">$ {product.price}</p>
         </div>
         <div className="flex items-center gap-2">
           <button

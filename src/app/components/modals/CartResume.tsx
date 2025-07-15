@@ -47,23 +47,27 @@ const CartResume = () => {
           <Image
             src="/left-arrow-icon.svg"
             alt="close"
-            width={30}
-            height={30}
+            width={25}
+            height={25}
           />
         </button>
         <button
           onClick={() => setIsOpen(false)}
           className=" hidden md:block top-4 right-4 text-gray-500 hover:text-gray-700"
         >
-          <Image src="/close-icon.svg" alt="close" width={30} height={30} />
+          <Image src="/close-icon.svg" alt="close" width={25} height={25} />
         </button>
       </div>
-      <div className="flex items-center gap-2">
-        <Image src="/shoping-bag-icon.svg" alt="close" width={30} height={30} />
+      <div className="hidden md:flex items-center gap-2">
+        <Image src="/shoping-bag-icon.svg" alt="close" width={25} height={25} />
         <p className="text-2xl font-bold">Mi bolsa</p>
       </div>
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mt-4">
-        <div className="col-span-1 flex flex-col gap-4 h-[70vh] md:h-[60vh] scrollbar-hide rounded-2xl p-4 w-full overflow-y-auto">
+      <div className="md:hidden flex flex-col items-center gap-2">
+        <Image src="/bag-icon.svg" alt="close" width={25} height={25} />
+        <p className="text-xl font-bold">Mi bolsa</p>
+      </div>
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mt-1">
+        <div className="col-span-1 flex flex-col pb-16 md:pb-0 gap-4 h-[70vh] md:h-[60vh] rounded-2xl w-full overflow-y-auto">
           {cartProducts.map((product) => (
             <CartProductCard
               key={product.id}
@@ -85,12 +89,12 @@ const CartResume = () => {
             />
           </button>
         </div>
-        <div className="flex md:hidden justify-center pt-4">
+        <div className="flex md:hidden fixed w-full bottom-0 left-0 p-5">
           <button
-            className="bg-background w-full pt-4 border-2 px-4 py-2 rounded-2xl text-black hover:bg-hover-cancel-button"
+            className="bg-background w-full border px-4 py-2 rounded-2xl text-black hover:bg-hover-cancel-button"
             onClick={() => handleShowResumeModal()}
           >
-            Detalle del pedido
+            <p className="text-lg font-bold">Detalle del pedido</p>
           </button>
         </div>
 

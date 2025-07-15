@@ -40,7 +40,7 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
     >
       {children}
       {isOpen && (
-        <div className="z-20 fixed inset-0 backdrop-blur-sm flex items-center justify-center p-4 rounded-2xl">
+        <div className="z-20 fixed inset-0 backdrop-blur-sm flex items-center justify-center rounded-2xl">
           {modalToShow}
         </div>
       )}

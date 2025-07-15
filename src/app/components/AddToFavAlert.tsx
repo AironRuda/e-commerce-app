@@ -32,7 +32,7 @@ const AddToFavAlert = ({ productData, setShowAlert }: AddToFavAlertProps) => {
     <div className="mx-5 h-16 rounded-t-2xl md:hidden p-3 flex items-start justify-between fixed bottom-1/10 left-0 right-0 z-9 bg-background-icon">
       <div className="w-8 h-8 border-2 border-gray-200 flex items-center justify-center bg-white rounded-lg">
         <Image
-          className="cursor-pointer max-h-8 rounded-xl hover:scale-105 transition-discrete duration-300"
+          className="cursor-pointer max-h-8 hover:scale-105 transition-discrete duration-300"
           src={productData.image}
           alt={productData.name}
           width={25}

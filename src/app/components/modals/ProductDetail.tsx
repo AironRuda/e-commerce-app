@@ -8,10 +8,10 @@ import { useGetProductById } from "@/hooks/products/useProducts";
 import StatusLoading from "../status/StatusLoading";
 import StatusError from "../status/StatusError";
 import StatusNotfound from "../status/StatusNotfound";
-import { stringCutter } from "@/app/utils/stringCutter";
-import SizeSelector from "./SizeSelector";
 import { useFavProductsContext } from "@/app/context/FavProductsProvider";
 import { useCartProductsContext } from "@/app/context/CartProductsProvider";
+import DetailPhoto from "./productCardDetail/DetailPhoto";
+import DetailData from "./productCardDetail/DetailData";
 
 const ProductDetail = ({ productId }: { productId: number }) => {
   const { productResponse, isLoading, isError } = useGetProductById(
@@ -49,99 +49,61 @@ const ProductDetail = ({ productId }: { productId: number }) => {
     if (isError) return <StatusError />;
     if (!productResponse?.id) return <StatusNotfound />;
     return (
-      <div className="bg-background shadow-lg rounded-2xl p-6 max-w-4xl w-full relative max-h-full md:max-h-[80dvh] overflow-auto">
+      <div className="md:flex md:flex-col bg-white shadow-lg rounded-2xl p-5 max-w-4xl w-full relative max-h-full md:max-h-[80dvh] md:w-3/5 overflow-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute hidden md:block top-4 right-4 text-gray-500 hover:text-gray-700"
+          className="absolute hidden md:block top-7 right-7 text-gray-500 hover:text-gray-700"
         >
           <Image src="/close-icon.svg" alt="close" width={20} height={20} />
         </button>
 
-        <article className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-3">
-          <div className="relative w-full h-full flex flex-col justify-center items-center">
-            <Image
-              className="rounded-2xl border-2 border-gray-200 min-w-[400px] min-h-[400px] max-w-[600px] max-h-[600px]"
-              src={productResponse.image}
-              alt="product-image"
-              width={400}
-              height={400}
-            />
-            <button
-              onClick={() => setIsOpen(false)}
-              className="rounded-full border-1 border-gray-200 shadow-2xl absolute md:hidden top-7 left-7"
-            >
-              <Image
-                className="bg-white p-1 rounded-full"
-                src="/chevron-down-icon.svg"
-                style={{ transform: "rotate(90deg)" }}
-                alt="close"
-                width={50}
-                height={50}
-              />
-            </button>
-
-            <button
-              onClick={handleFavProduct}
-              className="rounded-full border-1 border-gray-200 shadow-2xl absolute top-7 right-7 cursor-pointer"
-            >
-              <Image
-                className="bg-white p-1 rounded-full "
-                src={isProductFav ? "/is-fav-icon.svg" : "/is-not-fav-icon.svg"}
-                alt={productResponse.name}
-                width={50}
-                height={50}
-              />
-            </button>
-
-            <div className="absolute flex items-center justify-around gap-16 bottom-7 left-7 p-2">
-              <div className="text-left flex flex-col gap-6">
-                <p className="text-3xl font-extrabold text-white text-shadow-[0_0_10px_rgba(0,0,0)]">
-                  {stringCutter(productResponse.name, 12)}
-                </p>
-                <p className="text-2xl font-extrabold text-white text-shadow-[0_0_10px_rgba(0,0,0)]">
-                  $ {productResponse.price}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-6 flex flex-col justify-between">
-            <h1 className="text-3xl font-extrabold text-secondary">
-              {productResponse.name}
-            </h1>
-            {productResponse.category !== "electronics" &&
-              productResponse.category !== "jewelery" && (
-                <SizeSelector
-                  selectedSize={selectedSize}
-                  setSelectedSize={setSelectedSize}
-                />
-              )}
-
-            <p className="text-lg text-gray-500">
-              {productResponse.description}
-            </p>
-            <div className="flex gap-4 justify-end">
-              <button
-                className="bg-white w-1/2 border-2 px-4 py-2 rounded-2xl text-black hover:bg-hover-cancel-button hidden md:block"
-                onClick={() => setIsOpen(false)}
-              >
-                Cancelar
-              </button>
-              <button
-                className="bg-primary w-full md:w-1/2 flex items-center justify-center text-white px-6 py-3 rounded-lg hover:bg-hover-primary"
-                onClick={handleShowResumeModal}
-              >
-                <Image
-                  src="/white-shoping-bag-icon.svg"
-                  alt="heart"
-                  width={25}
-                  height={25}
-                />
-                <p>Agregar a la bolsa</p>
-              </button>
-            </div>
-          </div>
+        <article className="w-full pb-15 md:pb-0 flex flex-col md:grid md:grid-cols-2 md:h-[50dvh] gap-6">
+          <DetailPhoto
+            productData={productResponse}
+            isProductFav={isProductFav}
+            setIsOpen={setIsOpen}
+            handleFavProduct={handleFavProduct}
+          />
+          <DetailData
+            productData={productResponse}
+            selectedSize={selectedSize}
+            setSelectedSize={setSelectedSize}
+          />
         </article>
+        <div className="md:hidden fixed w-full bottom-0 left-0 p-5">
+          <button
+            className="bg-primary w-full flex items-center justify-around text-white py-3 rounded-lg hover:bg-hover-primary"
+            onClick={handleShowResumeModal}
+          >
+            <Image
+              src="/white-shoping-bag-icon.svg"
+              alt="heart"
+              width={25}
+              height={25}
+            />
+            <p>Agregar a la bolsa</p>
+          </button>
+        </div>
+        <div className="hidden md:flex md:self-end mt-5 w-3/4 gap-4">
+          <button
+            className="bg-white w-1/2 border-2 px-4 py-2 rounded-lg text-black hover:bg-hover-cancel-button hidden md:block"
+            onClick={() => setIsOpen(false)}
+          >
+            Cancelar
+          </button>
+          <button
+            className="bg-primary w-full md:w-1/2 flex items-center justify-center text-white px-6 py-3 rounded-lg hover:bg-hover-primary"
+            onClick={handleShowResumeModal}
+          >
+            <Image
+              src="/white-shoping-bag-icon.svg"
+              alt="heart"
+              width={25}
+              height={25}
+            />
+            <p>Agregar a la bolsa</p>
+          </button>
+        </div>
       </div>
     );
   };
