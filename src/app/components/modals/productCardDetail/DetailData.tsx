@@ -13,7 +13,7 @@ const DetailData = ({
   setSelectedSize,
 }: DetailDataProps) => {
   return (
-    <div className="space-y-4 md:h-4/5 md:overflow-auto self-center flex flex-col pr-5 pt-5">
+    <div className="space-y-4 md:w-full md:h-4/5 md:overflow-auto self-center flex flex-col pr-5 md:pr-0 md:pl-5 pt-5">
       <h1 className="text-xl font-extrabold text-secondary">
         {productData.name}
       </h1>
