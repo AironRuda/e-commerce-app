@@ -7,7 +7,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 p-3 z-10 md:flex md:items-center md:justify-between md:fixed md:top-0 md:bottom-auto md:shadow-none md:bg-background">
+    <div className="fixed bottom-0 left-0 right-0 p-5 z-10 md:flex md:items-center md:justify-between md:fixed md:top-0 md:bottom-auto md:shadow-none md:bg-background">
       <Image
         className="hidden md:block md:ml-4"
         src="/navbar-logo.svg"
@@ -15,7 +15,7 @@ const Navbar = () => {
         width={30}
         height={30}
       />
-      <nav className="bg-primary rounded-2xl p-6 md:bg-transparent">
+      <nav className="bg-primary rounded-2xl p-3 h-12 md:bg-transparent">
         <ul className="flex items-center justify-around ">
           <li className="nav-item">
             <Link href="/">
@@ -25,8 +25,8 @@ const Navbar = () => {
                   pathname === "/" ? "/white-house-icon.svg" : "/house-icon.svg"
                 }
                 alt="Home"
-                width={25}
-                height={25}
+                width={20}
+                height={20}
               />
               <p
                 className={pathname === "/" ? "border-b-4 border-primary" : ""}
@@ -45,8 +45,8 @@ const Navbar = () => {
                 className=" md:hidden"
                 src="/collection-icon.svg"
                 alt="Home"
-                width={25}
-                height={25}
+                width={20}
+                height={20}
               />
               <p
                 className={
@@ -67,8 +67,8 @@ const Navbar = () => {
                 className="md:hidden"
                 src="/bag-icon.svg"
                 alt="Home"
-                width={25}
-                height={25}
+                width={20}
+                height={20}
               />
               <p
                 className={
@@ -89,8 +89,8 @@ const Navbar = () => {
                     : "/user-icon.svg"
                 }
                 alt="Home"
-                width={25}
-                height={25}
+                width={20}
+                height={20}
               />
               <p
                 className={

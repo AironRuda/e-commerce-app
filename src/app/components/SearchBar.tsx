@@ -19,6 +19,7 @@ const SearchBar = ({
     >
       <div className="flex justify-between">
         <input
+          className="md:text-lg md:pl-5"
           type="text"
           placeholder="Introduce una palabra clave ..."
           value={search}

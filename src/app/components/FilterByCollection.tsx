@@ -35,29 +35,29 @@ const FilterByCollection = ({
   return (
     <>
       <style>{styles}</style>
-      <section className="flex flex-col gap-4 mt-4">
-        <h1 className="text-2xl font-bold">Categorías</h1>
-        <div className="overflow-x-auto scrollbar-hide h-20 pt-1 -mx-4 px-4">
-          <div className="flex gap-4">
-            {collectionFilterOptions.map((option) => (
-              <button
-                key={option.collectionId}
-                className={`filter-by-collection-option px-4 py-2 rounded-lg transition-colors duration-200 ${
-                  collectionFilter === option.collectionId
-                    ? "bg-white text-black border-0 shadow-lg"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-                onClick={() => handleCollectionFilter(option.collectionId)}
-              >
-                <p className="flex gap-2 items-center">
-                  <span className="bg-background rounded-lg p-2">
-                    {option.icon}
-                  </span>
-                  {option.name}
-                </p>
-              </button>
-            ))}
-          </div>
+      <section className="flex flex-col gap-1 mt-3">
+        <h1 className="text-lg font-bold md:text-xl md:mb-2 md:mt-4">
+          Categorías
+        </h1>
+        <div className="overflow-x-auto flex gap-3 scrollbar-hide h-12 md:h-16 pt-0.5 -mx-4 px-4">
+          {collectionFilterOptions.map((option) => (
+            <button
+              key={option.collectionId}
+              className={`filter-by-collection-option min-w-24 px-1 md:h-14 md:min-w-32 md:px-2 py-1 rounded-lg transition-colors duration-200 ${
+                collectionFilter === option.collectionId
+                  ? "bg-white text-black border-0 shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+              onClick={() => handleCollectionFilter(option.collectionId)}
+            >
+              <p className="flex justify-between items-center text-xs pr-1 md:text-base">
+                <span className="bg-background rounded-md p-1">
+                  {option.icon}
+                </span>
+                {option.name}
+              </p>
+            </button>
+          ))}
         </div>
       </section>
     </>

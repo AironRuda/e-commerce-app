@@ -36,36 +36,43 @@ const ProductCard = ({ productData }: { productData: IProduct }) => {
 
   return (
     <li
-      className="flex flex-col items-center bg-white rounded-2xl p-2 h-60 w-full md:w-48 shadow-xl"
+      className="flex flex-col items-center justify-between bg-white rounded-xl p-2 h-48 md:h-60 w-full md:w-48 border-gray-500 hover:outline-2 hover:outline-gray-500 hover:shadow-none transition-all duration-150"
       key={productData.id}
+      style={{
+        boxShadow:
+          "8px 8px 20px -1px rgba(0, 0, 0, 0.05), 8px -8px 20px -1px rgba(0, 0, 0, 0.05)",
+      }}
     >
       {showAlert && (
         <AddToFavAlert productData={productData} setShowAlert={setShowAlert} />
       )}
       <div
-        className="h-full flex flex-col items-center justify-center"
+        className="h-3/4 w-full p-2 flex flex-col justify-center items-center rounded-xl border-1 border-gray-100"
         onClick={handleShowModal}
       >
         <Image
-          className="cursor-pointer  hover:scale-105 transition-discrete duration-300"
           src={productData.image}
           alt={productData.name}
-          width={100}
-          height={100}
+          width={80}
+          height={80}
         />
       </div>
-      <div className="flex float-end justify-between items-center w-full px-1">
+      <div className="flex justify-between items-center w-full px-1">
         <div className="cursor-pointer" onClick={handleShowModal}>
-          <p className="text-sm font-bold">{stringCutter(productData.name)}</p>
-          <p className="text-gray-500 text-sm">$ {productData.price}</p>
+          <p className="text-xs font-bold md:text-base md:font-extrabold">
+            {stringCutter(productData.name, 12)}
+          </p>
+          <p className="text-gray-400 text-xs font-normal md:text-base md:font-extrabold">
+            $ {productData.price}
+          </p>
         </div>
         <button onClick={handleFavProduct}>
           <Image
             className="cursor-pointer hover:scale-105 transition-discrete duration-300"
             src={isProductFav ? "/is-fav-icon.svg" : "/is-not-fav-icon.svg"}
             alt={productData.name}
-            width={30}
-            height={30}
+            width={25}
+            height={25}
           />
         </button>
       </div>

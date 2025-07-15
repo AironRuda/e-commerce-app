@@ -19,7 +19,7 @@ const ProductsTable = ({ collection }: { collection: string }) => {
       return <StatusNotfound />;
     }
     return (
-      <section className="w-full mt-5">
+      <section className="w-full">
         <ul className="grid grid-cols-2 md:grid-cols-6 gap-4">
           {productsListResponse?.map((product) => (
             <ProductCard productData={product} key={product.id} />

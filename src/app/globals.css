@@ -66,17 +66,17 @@ body {
   }
 
   .search-bar {
-    @apply w-1/2 bg-white py-3 rounded-3xl mt-5 mx-auto;
+    @apply w-1/2 h-10 bg-white py-1.5 rounded-xl mt-3 mx-auto;
     & div {
       @apply relative flex items-center;
     }
     & input {
-      @apply w-3/4 bg-transparent py-2 sm:pr-10 pl-8 font-medium text-lg text-black placeholder-gray-500 outline-hidden;
+      @apply w-3/4 bg-transparent sm:pr-10 pl-2 font-medium text-xs text-black placeholder-gray-500 outline-hidden;
     }
   }
 
   .filter-by-collection-option {
-    @apply border border-gray-500 px-8 rounded-2xl hover:scale-105 transition-discrete duration-300;
+    @apply border border-gray-500 h-10 px-4 rounded-2xl hover:scale-105 transition-discrete duration-300;
   }
 
   .shadow-balanced {
