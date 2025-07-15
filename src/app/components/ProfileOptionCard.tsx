@@ -11,18 +11,15 @@ const ProfileOptionCard = ({ name, href, icon }: ProfileOptionCardProps) => {
   return (
     <li
       key={name}
-      className="flex bg-white rounded-2xl shadow-lg h-18 w-full hover:border-2"
+      className="flex bg-white rounded-2xl shadow-lg h-12 w-full hover:border-2"
       style={{
         boxShadow:
           "0 8px 10px -1px rgba(0, 0, 0, 0.1), 0 -4px 10px -1px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <Link
-        href={href}
-        className="p-4 px-8 rounded-lg flex items-center gap-4 w-full"
-      >
-        <Image className="mx-8" src={icon} alt="User" width={30} height={30} />
-        <p className="flex-grow font-extrabold text-xl text-center">{name}</p>
+      <Link href={href} className="rounded-lg flex items-center w-full">
+        <Image className="mx-8" src={icon} alt="User" width={20} height={20} />
+        <p className="flex-grow font-extrabold text-base text-center">{name}</p>
       </Link>
     </li>
   );
