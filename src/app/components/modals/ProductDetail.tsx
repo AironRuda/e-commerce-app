@@ -73,7 +73,7 @@ const ProductDetail = ({ productId }: { productId: number }) => {
         </article>
         <div className="md:hidden fixed w-full bottom-0 left-0 p-5">
           <button
-            className="bg-primary w-full flex items-center justify-around text-white py-3 rounded-lg hover:bg-hover-primary"
+            className="bg-primary w-full flex items-center justify-center text-white py-3 rounded-lg hover:bg-hover-primary"
             onClick={handleShowResumeModal}
           >
             <Image
@@ -82,7 +82,7 @@ const ProductDetail = ({ productId }: { productId: number }) => {
               width={25}
               height={25}
             />
-            <p>Agregar a la bolsa</p>
+            <p className="ml-6">Agregar a la bolsa</p>
           </button>
         </div>
         <div className="hidden md:flex md:self-end mt-12 w-2/3 gap-4">

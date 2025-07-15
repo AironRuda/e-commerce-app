@@ -11,7 +11,7 @@ const ProfileOptionCard = ({ name, href, icon }: ProfileOptionCardProps) => {
   return (
     <li
       key={name}
-      className="flex bg-white rounded-2xl shadow-lg h-12 w-full hover:border-2"
+      className="flex bg-white rounded-2xl shadow-lg h-12 w-full md:pr-6 hover:border-2"
       style={{
         boxShadow:
           "0 8px 10px -1px rgba(0, 0, 0, 0.1), 0 -4px 10px -1px rgba(0, 0, 0, 0.1)",

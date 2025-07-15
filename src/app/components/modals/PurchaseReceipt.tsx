@@ -44,7 +44,7 @@ const PurchaseReceipt = () => {
         className="bg-white p-4 rounded-2xl  border-2 border-gray-500"
         onClick={() => handleFinishBuyProcess()}
       >
-        <p className="text-xl font-bold">Descargar comprobante</p>
+        <p className="text-md md:text-xl font-bold">Descargar comprobante</p>
       </button>
     </div>
   );
