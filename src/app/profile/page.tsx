@@ -51,7 +51,7 @@ const page = () => {
       </div>
       <div className="flex flex-col items-center gap-4 md:bg-white">
         <Image
-          className="rounded-full my-4 md:my-8"
+          className="rounded-full my-8 md:my-8"
           src="/profile-image.png"
           alt="User"
           width={120}
