@@ -29,23 +29,25 @@ const AddToFavAlert = ({ productData, setShowAlert }: AddToFavAlertProps) => {
   };
 
   return (
-    <div className="mx-3 h-20 rounded-t-2xl md:hidden p-3 flex items-start justify-between fixed bottom-1/9 left-0 right-0 z-9 bg-background-icon">
-      <Image
-        className="cursor-pointer  max-h-20 rounded-xl hover:scale-105 transition-discrete duration-300"
-        src={productData.image}
-        alt={productData.name}
-        width={40}
-        height={40}
-      />
-      <p className="text-white font-medium text-xl text-center justify-center pt-2">
+    <div className="mx-5 h-16 rounded-t-2xl md:hidden p-3 flex items-start justify-between fixed bottom-1/10 left-0 right-0 z-9 bg-background-icon">
+      <div className="w-8 h-8 border-2 border-gray-200 flex items-center justify-center bg-white rounded-lg">
+        <Image
+          className="cursor-pointer max-h-8 rounded-xl hover:scale-105 transition-discrete duration-300"
+          src={productData.image}
+          alt={productData.name}
+          width={25}
+          height={25}
+        />
+      </div>
+      <p className="text-white font-medium text-sm text-center justify-center">
         Agregado a favoritos.
       </p>
       <Image
         className="cursor-pointer max-w-20 max-h-20 rounded-xl  hover:scale-105 transition-discrete duration-300"
         src="/white-arrow-icon.svg"
         alt="white-arrow-icon"
-        width={40}
-        height={40}
+        width={25}
+        height={25}
         onClick={handleShowModal}
       />
     </div>
