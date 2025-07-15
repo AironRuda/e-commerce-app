@@ -44,7 +44,7 @@ export const CartSummary = ({
 
       <button
         onClick={onPurchase}
-        className="w-full bg-primary text-white py-2 rounded-lg hover:bg-hover-button"
+        className="w-full bg-primary text-white py-2 rounded-lg hover:cursor-pointer hover:bg-hover-primary"
       >
         Comprar
       </button>

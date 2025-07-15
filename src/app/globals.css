@@ -17,6 +17,7 @@
   --border: #e5e7eb; /* Bordes */
   --card: #ffffff; /* Fondo de tarjetas */
   --surface: #fafafa; /* Superficies elevadas */
+  --card-background: #f9f9f9;
   --text-secondary: #4b5563; /* Texto secundario */
   --hover-primary: #00dd30; /* Hover para elementos primarios */
   --hover-secondary: #e55a2b; /* Hover para elementos secundarios */
@@ -40,6 +41,8 @@
   --color-hover-primary: var(--hover-primary);
   --color-hover-cancel-button: var(--hover-cancel-button);
   --color-background-icon: var(--background-icon);
+
+  --color-card-background: var(--card-background);
 }
 
 body {
@@ -66,7 +69,7 @@ body {
   }
 
   .search-bar {
-    @apply w-1/2 h-10 bg-white py-1.5 rounded-xl mt-3 mx-auto;
+    @apply w-1/2 h-12 bg-white py-2 rounded-xl mt-3 mx-auto;
     & div {
       @apply relative flex items-center;
     }

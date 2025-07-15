@@ -38,7 +38,7 @@ const CartResume = () => {
   };
 
   return (
-    <div className="bg-background shadow-lg rounded-2xl pt-10 p-6 max-w-4xl w-full h-[100vh] md:max-h-[80vh] flex flex-col items-center">
+    <div className="bg-card-background shadow-lg rounded-2xl pt-10 p-5 max-w-4xl w-full h-[100vh] md:h-[70dvh] flex flex-col items-center">
       <div className="flex justify-between w-full">
         <button
           onClick={() => handleBackToProductDetail()}
@@ -58,16 +58,12 @@ const CartResume = () => {
           <Image src="/close-icon.svg" alt="close" width={25} height={25} />
         </button>
       </div>
-      <div className="hidden md:flex items-center gap-2">
-        <Image src="/shoping-bag-icon.svg" alt="close" width={25} height={25} />
+      <div className="flex md:flex-col items-center gap-2 mb-2 md:mb-6">
+        <Image src="/bag-icon.svg" alt="close" width={25} height={25} />
         <p className="text-2xl font-bold">Mi bolsa</p>
       </div>
-      <div className="md:hidden flex flex-col items-center gap-2">
-        <Image src="/bag-icon.svg" alt="close" width={25} height={25} />
-        <p className="text-xl font-bold">Mi bolsa</p>
-      </div>
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full mt-1">
-        <div className="col-span-1 flex flex-col pb-16 md:pb-0 gap-4 h-[70vh] md:h-[60vh] rounded-2xl w-full overflow-y-auto">
+      <section className="grid grid-cols-1 md:flex md:flex-row md:items-start gap-4 w-full mt-1">
+        <div className=" col-span-1 flex flex-col pb-16 md:pb-0 gap-4 h-[70vh] md:h-[45dvh] md:w-1/2 rounded-2xl w-full overflow-y-auto">
           {cartProducts.map((product) => (
             <CartProductCard
               key={product.id}
@@ -77,7 +73,7 @@ const CartResume = () => {
             />
           ))}
           <button
-            className="flex items-center justify-center hover:scale-105 transition-discrete duration-300"
+            className="flex items-center justify-center"
             onClick={() => setIsOpen(false)}
           >
             <p className="text-lg font-bold">Agregar más productos</p>
@@ -98,8 +94,8 @@ const CartResume = () => {
           </button>
         </div>
 
-        <div className="hidden col-span-1 md:flex flex-col justify-center gap-8">
-          <div className="bg-white rounded-2xl p-6 shadow-lg">
+        <div className="hidden md:w-1/2 md:flex flex-col justify-center gap-8">
+          <div className="bg-card-background rounded-2xl p-6">
             <CartSummary
               onClose={() => setIsOpen(false)}
               onPurchase={handleShowPurchaseReceipt}

@@ -8,6 +8,7 @@ interface DetailPhotoProps {
   isProductFav: boolean;
   setIsOpen: (value: boolean) => void;
   handleFavProduct: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  selectedSize: string;
 }
 
 const DetailPhoto = ({
@@ -15,21 +16,22 @@ const DetailPhoto = ({
   isProductFav,
   setIsOpen,
   handleFavProduct,
+  selectedSize,
 }: DetailPhotoProps) => {
   return (
-    <div className="relative w-full h-full md:max-h-[50dvh] flex flex-col justify-center items-center rounded-2xl bg-white border-2 border-gray-200">
-      <div className="w-full h-full min-h-[400px] md:max-h-[50dvh] p-2 flex flex-col justify-center items-center  ">
+    <div className="relative w-full h-full md:h-[50dvh] md:w-[40dvh] flex flex-col justify-center items-center rounded-2xl bg-white border-2 border-gray-200">
+      <div className="w-full h-full min-h-[400px] bg-white p-2 flex flex-col justify-center items-center rounded-2xl">
         <Image
-          className="rounded-2xl h-full w-full"
+          className="h-full w-full"
           src={productData.image}
           alt="product-image"
-          width={200}
-          height={200}
+          width={400}
+          height={400}
         />
       </div>
       <button
+        className="rounded-full border-1 border-gray-200 shadow-2xl absolute md:hidden top-[5%] left-[5%]"
         onClick={() => setIsOpen(false)}
-        className="rounded-full border-1 border-gray-200 shadow-2xl absolute md:hidden top-5 left-5"
       >
         <Image
           className="bg-white p-1 rounded-full"
@@ -40,10 +42,9 @@ const DetailPhoto = ({
           height={30}
         />
       </button>
-
       <button
+        className="rounded-full border-1 border-gray-200 shadow-2xl absolute top-[5%] right-[5%] cursor-pointer"
         onClick={handleFavProduct}
-        className="rounded-full border-1 border-gray-200 shadow-2xl absolute top-5 right-5 cursor-pointer"
       >
         <Image
           className="bg-white p-1 rounded-full "
@@ -54,15 +55,16 @@ const DetailPhoto = ({
         />
       </button>
 
-      <div className="absolute flex items-center justify-around gap-16 bottom-5 left-5 p-2">
-        <div className="text-left flex flex-col gap-6">
-          <p className="text-3xl font-extrabold text-white text-shadow-[0_0_10px_rgba(0,0,0)]">
-            {stringCutter(productData.name, 12)}
-          </p>
-          <p className="text-2xl font-extrabold text-white text-shadow-[0_0_10px_rgba(0,0,0)]">
-            $ {productData.price}
-          </p>
-        </div>
+      <div className="absolute bottom-[25%] left-[5%] text-left flex flex-col gap-12">
+        <p className="text-3xl font-extrabold text-white text-shadow-[0_0_10px_rgba(0,0,0)]">
+          {stringCutter(productData.name, 12)}
+        </p>
+        <p className="text-2xl font-extrabold text-white text-shadow-[0_0_10px_rgba(0,0,0)]">
+          {productData.price} $
+          <span className="text-xs font-extrabold pl-2 text-gray-200 text-shadow-[0_0_10px_rgba(0,0,0)]">
+            / Talla {selectedSize}
+          </span>
+        </p>
       </div>
     </div>
   );

@@ -13,8 +13,8 @@ const DetailData = ({
   setSelectedSize,
 }: DetailDataProps) => {
   return (
-    <div className="space-y-2 md:h-3/4 md:overflow-auto self-center flex flex-col px-5">
-      <h1 className="text-lg font-semibold text-secondary">
+    <div className="space-y-4 md:h-4/5 md:overflow-auto self-center flex flex-col pr-5 pt-5">
+      <h1 className="text-xl font-extrabold text-secondary">
         {productData.name}
       </h1>
       {productData.category !== "electronics" &&
@@ -24,9 +24,11 @@ const DetailData = ({
             setSelectedSize={setSelectedSize}
           />
         )}
-      <div>
-        <h1 className="text-lg">Descripción</h1>
-        <p className="text-lg text-gray-500">{productData.description}</p>
+      <div className="pt-6">
+        <h1 className="text-lg pb-4">Descripción</h1>
+        <p className="text-lg text-gray-500 leading-5">
+          {productData.description}
+        </p>
       </div>
     </div>
   );

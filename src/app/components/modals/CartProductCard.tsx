@@ -14,6 +14,20 @@ const CartProductCard = ({
   decreaseProductQuantity,
   increaseProductQuantity,
 }: CartProductCardProps) => {
+  const collectionFilterOptions = [
+    { icon: "🎮", name: "Tecnología", collectionId: "electronics" },
+    { icon: "💎", name: "Joyería", collectionId: "jewelery" },
+    { icon: "👚", name: "Ropa Femenina", collectionId: "men's clothing" },
+    { icon: "👗", name: "Ropa Masculina", collectionId: "women's clothing" },
+  ];
+
+  const getCollectionIcon = (collectionId: string): string => {
+    const option = collectionFilterOptions.find(
+      (option) => option.collectionId === collectionId
+    );
+    return option?.icon || "❓";
+  };
+
   return (
     <div className="col-span-1 flex flex-col gap-4 bg-white rounded-2xl p-4 w-full">
       <div className="flex justify-between items-end">
@@ -30,8 +44,16 @@ const CartProductCard = ({
           <p className="text-base font-bold">
             {stringCutter(product.name, 10)}
           </p>
-          <p className="text-gray-500 text-xs">{product.rating.rate}</p>
-          <p className="text-gray-500 text-xs">$ {product.price}</p>
+          <p className="text-gray-500 text-xs">
+            <span>{getCollectionIcon(product.category)}</span>
+            {product.category}
+          </p>
+          <p className="font-semibold">
+            $ {product.price}
+            <span className="text-xs font-medium pl-1 text-gray-500">
+              / Talla {product.size}
+            </span>
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <button

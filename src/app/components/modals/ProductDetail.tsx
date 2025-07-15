@@ -49,20 +49,21 @@ const ProductDetail = ({ productId }: { productId: number }) => {
     if (isError) return <StatusError />;
     if (!productResponse?.id) return <StatusNotfound />;
     return (
-      <div className="md:flex md:flex-col bg-white shadow-lg rounded-2xl p-5 max-w-4xl w-full relative max-h-full md:max-h-[80dvh] md:w-3/5 overflow-auto">
+      <div className="md:flex md:flex-col bg-card-background shadow-lg rounded-2xl p-8 max-w-4xl h-full w-full md:w-1/2 md:h-3/4 relative overflow-auto">
         <button
-          onClick={() => setIsOpen(false)}
           className="absolute hidden md:block top-7 right-7 text-gray-500 hover:text-gray-700"
+          onClick={() => setIsOpen(false)}
         >
           <Image src="/close-icon.svg" alt="close" width={20} height={20} />
         </button>
 
-        <article className="w-full pb-15 md:pb-0 flex flex-col md:grid md:grid-cols-2 md:h-[50dvh] gap-6">
+        <article className="w-full pb-15 md:pb-0 flex flex-col md:grid md:grid-cols-2 gap-0">
           <DetailPhoto
             productData={productResponse}
             isProductFav={isProductFav}
             setIsOpen={setIsOpen}
             handleFavProduct={handleFavProduct}
+            selectedSize={selectedSize}
           />
           <DetailData
             productData={productResponse}
@@ -84,15 +85,15 @@ const ProductDetail = ({ productId }: { productId: number }) => {
             <p>Agregar a la bolsa</p>
           </button>
         </div>
-        <div className="hidden md:flex md:self-end mt-5 w-3/4 gap-4">
+        <div className="hidden md:flex md:self-end mt-12 w-2/3 gap-4">
           <button
-            className="bg-white w-1/2 border-2 px-4 py-2 rounded-lg text-black hover:bg-hover-cancel-button hidden md:block"
+            className="bg-white w-1/2 border-2 px-4 py-2 font-bold rounded-2xl text-black hover:bg-hover-cancel-button hidden md:block"
             onClick={() => setIsOpen(false)}
           >
             Cancelar
           </button>
           <button
-            className="bg-primary w-full md:w-1/2 flex items-center justify-center text-white px-6 py-3 rounded-lg hover:bg-hover-primary"
+            className="bg-primary w-full md:w-1/2 flex items-center justify-center text-white px-6 py-3 rounded-2xl hover:bg-hover-primary"
             onClick={handleShowResumeModal}
           >
             <Image

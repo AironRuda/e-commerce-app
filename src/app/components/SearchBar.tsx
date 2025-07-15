@@ -13,7 +13,7 @@ const SearchBar = ({
   const [isFocused, setIsFocused] = useState(false);
   return (
     <div
-      className={`search-bar w-full md:w-3/4  ${
+      className={`search-bar w-full md:w-2/3 hover:outline-2 hover:outline-gray-500 ${
         isFocused ? "outline-2 outline-gray-500" : ""
       }`}
     >
@@ -21,7 +21,7 @@ const SearchBar = ({
         <input
           className="md:text-lg md:pl-5"
           type="text"
-          placeholder="Introduce una palabra clave ..."
+          placeholder="Introduce una palabra clave..."
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
