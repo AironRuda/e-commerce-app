@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ProductCard from "./ProductCard";
 import { useGetProductsList } from "@/hooks/products/useProducts";
 import StatusLoading from "./status/StatusLoading";
